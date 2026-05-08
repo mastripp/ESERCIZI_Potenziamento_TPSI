@@ -5,7 +5,7 @@ public class Main {
     private static final int GATE_INTERNAZIONALI = 2;
 
     public static void main(String[] args) throws InterruptedException {
-        //ALT+ENTER
+
         Aeroporto aeroporto = new Aeroporto(GATE_NAZIONALI, GATE_INTERNAZIONALI);
 
         Volo[] voli = {

@@ -4,14 +4,14 @@ import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
 
 public class Aeroporto {
-    //CTRL+D= duplica riga
+
     private int gateNazionaliTotali;
     private int gateIntenazionaliTotali;
 
-    // synchronized = Lock + Condition
+
     private final ReentrantLock lock;
     private final Condition attendiNazionali;
-    //MAIUSC+F6=RENAME
+
     private int gateNazionaliLiberi;
 
     public Aeroporto(int gateIntenazionaliTotali, int gateNazionaliTotali) {
@@ -22,11 +22,11 @@ public class Aeroporto {
         this.attendiNazionali = lock.newCondition();
     }
 
-    //CTRL + - (meno): chiudi scope (si legge scop)
+
     public void acquisisciGateNazionle(Volo v) throws InterruptedException {
         lock.lock();
 
-        //CTRL+ALT+T
+
         try {
             while (gateNazionaliLiberi == 0) attendiNazionali.await();
             gateNazionaliLiberi--;
@@ -42,7 +42,7 @@ public class Aeroporto {
 
         try {
             gateNazionaliLiberi++;
-            //notify() = signal()
+            
             attendiNazionali.signal();
         } finally {
             lock.unlock();

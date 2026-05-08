@@ -18,16 +18,15 @@ public class Volo extends Thread {
     public void run() {
         for (int i = 0; i < MAX_ITERATION; i++) {
             try {
-                //1) si prepara
+
                 sleep(2000);
-                //acquisisce in base al tipo
+
                 if (type == TipoVolo.NAZIONALE) {
                     aeroporto.acquisisciGateNazionle(this);
                 }
-                //vola
+
                 sleep(4500);
-                //rilascia
-                //TODO: if sul tipo e richiamo del metodo relativo :)
+
                 if (type == TipoVolo.NAZIONALE) {
                     aeroporto.rilasciaGateNazionle(this);
                 }
